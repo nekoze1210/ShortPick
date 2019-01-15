@@ -1,0 +1,11 @@
+{
+  "name": "ShortPick",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "git@github-nekoze:nekoze1210/ShortPick.git",
+  "author": "Daiki Nagaoka <neko.z.n1210@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.0.1"
+  }
+}
