@@ -5,7 +5,14 @@
   "repository": "git@github-nekoze:nekoze1210/ShortPick.git",
   "author": "Daiki Nagaoka <neko.z.n1210@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
   "devDependencies": {
     "electron": "^4.0.1"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "axios": "^0.18.0"
   }
 }
