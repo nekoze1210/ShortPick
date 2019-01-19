@@ -1,3 +1,4 @@
+const { dialog } = require('electron')
 const axios = require('axios')
 
 exports.post = function(url, jsonOptions) {
@@ -9,10 +10,7 @@ exports.post = function(url, jsonOptions) {
     })
     .catch(error => {
       console.log('FAILED: Send slack webhook', error)
-      dialog.showErrorBox(
-        'ConnectionFailed',
-        'Pickに失敗しました。\nError:' + error
-      )
+      dialog.showErrorBox('ConnectionError', 'Message:' + error)
       return error
     })
 }
