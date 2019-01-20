@@ -30,5 +30,12 @@ exports.menuTemplate = [
     click() {
       createPreferenceWindow()
     }
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'Quit',
+    role: 'quit'
   }
 ]

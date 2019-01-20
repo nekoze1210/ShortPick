@@ -10,9 +10,6 @@ const firefoxScript =
   'tell application "Firefox" to activate tell application "System Events" keystroke "l" using command down keystroke "c" using command down end tell'
 
 exports.pick = function() {
-  console.log('pick.js Triggered')
-  // browserScript = ''
-
   // TODO: Delete after complete userdefaults functions
   browserScript = chromeScript
   webhookUrl =
@@ -33,6 +30,9 @@ exports.pick = function() {
         body: 'Successfully Picked'
       })
       notification.show()
+      setTimeout(() => {
+        notification.close()
+      }, 5000)
     }
   })
 }
