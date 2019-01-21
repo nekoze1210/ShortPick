@@ -1,4 +1,4 @@
-const { Notification } = require('electron')
+const { Notification, systemPreferences } = require('electron')
 const applescript = require('applescript')
 const slackWebhook = require('../api/slackWebhook')
 
@@ -10,6 +10,8 @@ const firefoxScript =
   'tell application "Firefox" to activate tell application "System Events" keystroke "l" using command down keystroke "c" using command down end tell'
 
 exports.pick = function() {
+  r = systemPreferences.getUserDefault('webhookUrl')
+  console.log(r)
   // TODO: Delete after complete userdefaults functions
   browserScript = chromeScript
   webhookUrl =

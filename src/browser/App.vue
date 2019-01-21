@@ -1,24 +1,27 @@
 <template>
-  <div>
-    <div class="navigator">
-      <h1>ShortPick</h1>
-      <p>version:</p>
-      <p>v1.0.0 beta</p>
-    </div>
+  <div class="container clearfix">
+    <sidebar/>
+    <setting-form/>
   </div>
 </template>
 
 <script>
+import Sidebar from "./components/Sidebar.vue";
+import SettingForm from "./components/SettingForm.vue";
+
 export default {
-  name: "App"
+  name: "App",
+  components: { Sidebar, SettingForm }
 };
 </script>
 
-<style lang="scss">
-.navigator {
-  width: 252px;
-  min-height: 100%;
-  background: #140606;
-  color: #fff;
+<style lang="scss" scoped>
+.container {
+  height: 378px;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
 }
 </style>

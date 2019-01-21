@@ -10,7 +10,8 @@ module.exports = {
   plugins: [new VueLoaderPlugin()],
   output: {
     path: __dirname + '/src/browser',
-    filename: 'build.js'
+    filename: 'build.js',
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -28,7 +29,12 @@ module.exports = {
             sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
         }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
       }
     ]
-  }
+  },
+  externals: ['electron', 'fs']
 }
