@@ -2,12 +2,20 @@
   <div class="setting-form">
     <label class="label">Shortcut:</label>
     <input class="input" type="text" v-model="shortcut" @change="saveUserDefaults()" disabled>
-    <label class="label">Webhook URL:</label>
+    <label class="label">Slack Webhook URL:</label>
     <input
       class="input"
       type="text"
       placeholder="https://hooks.slack.com/services/..."
       v-model="webhookUrl"
+      @change="saveUserDefaults()"
+    >
+    <label class="label">Channel Name:</label>
+    <input
+      class="input"
+      type="text"
+      placeholder="random"
+      v-model="channelName"
       @change="saveUserDefaults()"
     >
     <label class="label">TargetBrowser:</label>
@@ -23,25 +31,42 @@
 </template>
 
 <script>
-const { systemPreferences } = require("electron");
+const storage = require("electron-json-storage");
+
 export default {
   name: "SettingForm",
   data() {
     return {
       shortcut: "⌘+Shift+L",
       webhookUrl: "",
-      targetBrowser: "Chrome",
-      check: ""
+      channelName: "",
+      targetBrowser: "Chrome"
     };
   },
   methods: {
     saveUserDefaults() {
-      console.log("userdefaults trigerred");
-      systemPreferences.registerDefaults("webhookUrl", this.webhookUrl);
-      systemPreferences.registerDefaults("targetBrowser", this.targetBrowser);
-      systemPreferences.registerDefaults("shortcut", this.shortcut);
-      this.check = systemPreferences.getUserDefault("webhookUrl", "string");
+      var json = {
+        webhookUrl: this.webhookUrl,
+        channelName: this.channelName,
+        targetBrowser: this.targetBrowser,
+        shortcut: this.shortcut
+      };
+      storage.set("ShortPickConfig", json, function(error) {
+        if (error) throw error;
+      });
     }
+  },
+  mounted() {
+    let self = this;
+    storage.get("ShortPickConfig", function(error, data) {
+      if (error) throw error;
+      if (Object.keys(data).length === 0) {
+      } else {
+        self.webhookUrl = data["webhookUrl"] || "";
+        self.channelName = data["channelName"] || "";
+        self.targetBrowser = data["targetBrowser"] || "Chrome";
+      }
+    });
   }
 };
 </script>

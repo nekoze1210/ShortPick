@@ -1,5 +1,6 @@
 const { createPreferenceWindow } = require('../browser/preferenceWindow')
 const { pick } = require('../actions/pick')
+const storage = require('electron-json-storage')
 
 exports.menuTemplate = [
   {
@@ -7,15 +8,23 @@ exports.menuTemplate = [
     submenu: [
       {
         label: 'Safari',
-        role: 'reload'
+        click() {
+          changeTargetBrowser('Safari')
+        }
       },
       {
         label: 'Chrome',
-        role: 'reload'
+        click() {
+          changeTargetBrowser('Chrome')
+        },
+        checked: true
       },
       {
         label: 'Firefox',
-        role: 'reload'
+        click() {
+          changeTargetBrowser('Firefox')
+        },
+        checked: true
       }
     ]
   },
@@ -39,3 +48,21 @@ exports.menuTemplate = [
     role: 'quit'
   }
 ]
+
+changeTargetBrowser = function(selectedBrowser) {
+  storage.get('ShortPickConfig', function(error, data) {
+    if (error) throw error
+    if (Object.keys(data).length === 0) {
+    } else {
+      var json = {
+        webhookUrl: data['webhookUrl'],
+        channelName: data['channelName'],
+        shortcut: data['shortcut'],
+        targetBrowser: selectedBrowser
+      }
+      storage.set('ShortPickConfig', json, function(error) {
+        if (error) throw error
+      })
+    }
+  })
+}
