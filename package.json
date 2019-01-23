@@ -5,7 +5,33 @@
   "repository": "git@github-nekoze:nekoze1210/ShortPick.git",
   "author": "Daiki Nagaoka <neko.z.n1210@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:browser": "webpack",
+    "watch:browser": "webpack --watch"
+  },
   "devDependencies": {
-    "electron": "^4.0.1"
+    "css-loader": "^2.1.0",
+    "electron": "^4.0.1",
+    "electron-packager": "^13.0.1",
+    "file-loader": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "normalize.css": "^8.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.5.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.22",
+    "vue-template-loader": "^1.0.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "axios": "^0.18.0",
+    "bulma": "^0.7.2",
+    "electron-first-run": "^2.0.0",
+    "electron-json-storage": "^4.1.5",
+    "vue": "^2.5.22"
   }
 }
