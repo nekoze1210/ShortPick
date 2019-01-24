@@ -4,31 +4,6 @@ const storage = require('electron-json-storage')
 
 exports.menuTemplate = [
   {
-    label: 'Target Browser',
-    submenu: [
-      {
-        label: 'Safari',
-        click() {
-          changeTargetBrowser('Safari')
-        }
-      },
-      {
-        label: 'Chrome',
-        click() {
-          changeTargetBrowser('Chrome')
-        },
-        checked: true
-      },
-      {
-        label: 'Firefox',
-        click() {
-          changeTargetBrowser('Firefox')
-        },
-        checked: true
-      }
-    ]
-  },
-  {
     label: 'Pick',
     click() {
       pick()
