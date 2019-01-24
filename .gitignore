@@ -26,3 +26,4 @@ jspm_packages/
 .dynamodb/
 .DS_Store
 build.js
+ShortPick-darwin-x64/
