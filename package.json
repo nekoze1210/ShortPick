@@ -9,7 +9,7 @@
     "start": "electron .",
     "build:browser": "webpack",
     "watch:browser": "webpack --watch",
-    "package": "electron-packager . ShortPick --platform=darwin --arch=x64"
+    "package": "electron-packager . ShortPick --platform=darwin --arch=x64 --icon=./src/assets/icons/app_logo.icns --overwrite"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",
