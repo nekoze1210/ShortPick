@@ -8,7 +8,8 @@
   "scripts": {
     "start": "electron .",
     "build:browser": "webpack",
-    "watch:browser": "webpack --watch"
+    "watch:browser": "webpack --watch",
+    "package": "electron-packager . ShortPick --platform=darwin --arch=x64"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",
