@@ -22,7 +22,6 @@
     <div class="select">
       <select v-model="targetBrowser" @change="saveUserDefaults()">
         <option>Chrome</option>
-        <option>Firefox</option>
         <option>Safari</option>
       </select>
     </div>

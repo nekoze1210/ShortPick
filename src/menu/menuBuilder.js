@@ -28,6 +28,10 @@ exports.setUpMenu = () => {
             selector: 'selectAll:'
           }
         ]
+      },
+      {
+        role: 'window',
+        submenu: [{ role: 'minimize' }, { role: 'close' }]
       }
     )
   }
