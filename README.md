@@ -25,7 +25,8 @@ ShortPick はショートカットで閲覧中のサイトを SlackWebhook で�
 
 ## Contributing
 
-ShortPick に共感を持っていただけた方、 改善したい方  はいつでも歓迎します。
+ShortPick に共感を持っていただけた方、 改善したい方をいつでも歓迎します。
+以下の環境構築の手順をご参考にしてください。
 
 ### Installation(DEV)
 
